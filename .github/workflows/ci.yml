@@ -9,13 +9,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Clonar repositorio
-      uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
-    - name: Instalar dependencias
-      working-directory: ${{ github.workspace }}
-      run: npm install
+      - name: Mostrar estructura (debug)
+        run: ls -R
 
-    - name: Ejecutar tests
-      working-directory: ${{ github.workspace }}
-      run: npm test
+      - name: Instalar dependencias
+        run: |
+          pwd
+          npm install
+
+      - name: Ejecutar tests
+        run: |
+          pwd
+          node test/test.js
